@@ -17,10 +17,10 @@ jobs:
         python-version: ["3.10"]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
 
@@ -36,14 +36,14 @@ jobs:
 
       - name: Upload Windows Build
         if: matrix.os == 'windows-latest'
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: heic_converter-windows
           path: dist/heic_converter.exe
 
       - name: Upload macOS Build
         if: matrix.os == 'macos-latest'
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: heic_converter-macos
           path: dist/heic_converter
